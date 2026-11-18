@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504 1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6e4dd"/>
+      <stop offset=".52" stop-color="#b8b8b2"/>
+      <stop offset="1" stop-color="#878884"/>
+    </linearGradient>
+    <radialGradient id="orb" cx=".32" cy=".25" r=".75">
+      <stop offset="0" stop-color="#fffef8"/>
+      <stop offset=".16" stop-color="#e9ece7"/>
+      <stop offset=".42" stop-color="#89918e"/>
+      <stop offset=".62" stop-color="#1f2322"/>
+      <stop offset=".82" stop-color="#c2c6bd"/>
+      <stop offset="1" stop-color="#4b504c"/>
+    </radialGradient>
+    <linearGradient id="slab" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d8d4c8"/>
+      <stop offset="1" stop-color="#7e7e78"/>
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="-18" dy="30" stdDeviation="22" flood-color="#313431" flood-opacity=".45"/>
+    </filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 .14"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="504" height="1000" fill="url(#bg)"/>
+  <circle cx="258" cy="395" r="330" fill="none" stroke="#f6f0df" opacity=".36"/>
+  <circle cx="258" cy="395" r="265" fill="none" stroke="#5f6360" opacity=".18"/>
+  <g stroke="#5b615d" opacity=".18">
+    <path d="M0 177h504M0 684h504M85 0v1000M418 0v1000"/>
+  </g>
+  <ellipse cx="266" cy="837" rx="220" ry="65" fill="#333836" opacity=".28" filter="url(#shadow)"/>
+  <path d="M36 722 409 553l82 245-386 171Z" fill="url(#slab)" opacity=".72"/>
+  <g filter="url(#shadow)">
+    <circle cx="253" cy="430" r="176" fill="url(#orb)"/>
+    <ellipse cx="193" cy="342" rx="54" ry="88" fill="#fff" opacity=".26" transform="rotate(-35 193 342)"/>
+    <ellipse cx="315" cy="508" rx="67" ry="33" fill="#090b0a" opacity=".24" transform="rotate(-20 315 508)"/>
+  </g>
+  <path d="M55 846c104-51 222-43 394 21" fill="none" stroke="#faf5e8" stroke-width="1.2" opacity=".52"/>
+  <rect width="504" height="1000" filter="url(#grain)" opacity=".48"/>
+</svg>

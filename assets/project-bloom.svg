@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504 1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17251d"/>
+      <stop offset=".5" stop-color="#0d1712"/>
+      <stop offset="1" stop-color="#050b08"/>
+    </linearGradient>
+    <radialGradient id="haze" cx=".25" cy=".15" r=".7">
+      <stop offset="0" stop-color="#d6e1c2" stop-opacity=".54"/>
+      <stop offset=".42" stop-color="#728b62" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#102016" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rock" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4b5945"/>
+      <stop offset=".46" stop-color="#253127"/>
+      <stop offset="1" stop-color="#0c120e"/>
+    </linearGradient>
+    <filter id="blur24"><feGaussianBlur stdDeviation="24"/></filter>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 .18"/></feComponentTransfer>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="-10" dy="18" stdDeviation="10" flood-color="#000" flood-opacity=".7"/>
+    </filter>
+  </defs>
+  <rect width="504" height="1000" fill="url(#bg)"/>
+  <rect width="504" height="1000" fill="url(#haze)"/>
+  <g opacity=".38" filter="url(#blur24)" fill="#9fbd75">
+    <ellipse cx="73" cy="173" rx="94" ry="62"/>
+    <ellipse cx="121" cy="514" rx="125" ry="75"/>
+    <ellipse cx="420" cy="410" rx="80" ry="160"/>
+  </g>
+  <path d="M-30 874C59 721 109 584 220 535c111-50 131-162 263-203 42-13 76-19 107-11v679H-30Z" fill="url(#rock)"/>
+  <path d="M-24 343c80 33 192 85 256 170 49 66 46 149 118 220 59 58 122 78 199 93v174H-24Z" fill="#121c14" opacity=".95"/>
+  <path d="M175 1000c4-146 38-241 114-322 84-90 127-172 192-275l84 34c-71 150-160 267-209 358-52 97-51 166-54 205Z" fill="url(#rock)" filter="url(#shadow)"/>
+  <g fill="#58713e" opacity=".9">
+    <ellipse cx="144" cy="757" rx="32" ry="11" transform="rotate(-23 144 757)"/>
+    <ellipse cx="222" cy="743" rx="46" ry="14" transform="rotate(18 222 743)"/>
+    <ellipse cx="298" cy="650" rx="41" ry="13" transform="rotate(-16 298 650)"/>
+    <ellipse cx="89" cy="845" rx="31" ry="9" transform="rotate(27 89 845)"/>
+    <ellipse cx="357" cy="558" rx="30" ry="9" transform="rotate(24 357 558)"/>
+  </g>
+  <g fill="#c4d792" opacity=".34">
+    <circle cx="72" cy="814" r="3"/><circle cx="132" cy="865" r="2"/><circle cx="247" cy="707" r="2.3"/>
+    <circle cx="330" cy="601" r="1.7"/><circle cx="408" cy="495" r="2"/>
+  </g>
+  <g transform="translate(407 217)" filter="url(#shadow)">
+    <circle cx="0" cy="-31" r="8" fill="#f1bd9d"/>
+    <path d="M-14 -21 15 -21 25 42 0 69-25 42Z" fill="#b72227"/>
+    <path d="M-15 7-46 42M15 7l37 28M0 69l-12 74M0 69l17 74" stroke="#23080a" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <path d="M0 878c150-72 299-62 504 0" fill="none" stroke="#c5d6b4" stroke-width="1" opacity=".2"/>
+  <rect width="504" height="1000" filter="url(#noise)" opacity=".45"/>
+</svg>

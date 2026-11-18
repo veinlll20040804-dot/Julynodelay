@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AIGC 视觉设计师个人作品集：生成图像、动态影像与艺术指导。"
+    />
+    <meta name="theme-color" content="#0c0c0c" />
+    <title>AIGC Visual Designer — Portfolio</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230c0c0c'/%3E%3Cpath d='M10 14 31 10l23 4v5L30 22 10 19Zm0 24 21-4 23 4v5l-23 4-21-4Z' fill='%23fff'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-progress" aria-hidden="true"><span data-progress-bar></span></div>
+    <div class="view-cursor" data-cursor aria-hidden="true"><span>VIEW</span></div>
+
+    <header class="topbar">
+      <a class="brand-mark" href="#top" data-home aria-label="返回首页">
+        <svg viewBox="0 0 48 24" aria-hidden="true">
+          <path d="M0 3 15 0l10 3-10 3L0 3Zm9 8 25-5 10 3-35 7-9-2 9-3Zm15 5 24-1v4l-24 1-13 3-4-3 17-4Z" />
+        </svg>
+      </a>
+      <p class="scroll-status">Progress <span data-progress-text>(0%)</span></p>
+      <p class="availability"><i></i> Available for work</p>
+      <nav aria-label="主导航">
+        <a href="#other-works" data-jump="playground">Playground</a>
+        <a href="#contact" data-jump="contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="scroll-stage" data-stage>
+      <div class="sticky-viewport">
+        <div class="horizontal-track" data-track>
+          <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="services">
+              <span class="muted-label">(Services)</span>
+              <ul>
+                <li><span class="long-label">Digital Art</span><span class="short-label">Digital</span></li>
+                <li><span class="long-label">Generative</span><span class="short-label">AIGC</span></li>
+                <li><span class="long-label">Motion & Film</span><span class="short-label">Motion</span></li>
+                <li><span class="long-label">Visual Systems</span><span class="short-label">Visual</span></li>
+                <li><span class="long-label">Creative Direction</span><span class="short-label">Direction</span></li>
+                <li><span class="long-label">AI Workflow</span><span class="short-label">AI Tools</span></li>
+              </ul>
+            </div>
+
+            <div class="hero-content">
+              <div class="hero-name-row">
+                <h1 id="hero-title">HI, AIGC® HERE</h1>
+                <p class="from">
+                  From<br />
+                  China<br />
+                  Worldwide
+                </p>
+              </div>
+              <div class="hero-role">
+                <span>(VISUAL)</span><b>→</b><span>DESIGNER</span>
+              </div>
+            </div>
+
+            <div class="hero-footer">
+              <span>Volume 1.@26</span>
+              <button type="button" data-enter-work>Featured projects below ⟶</button>
+            </div>
+          </section>
+
+          <div class="project-spacer" aria-hidden="true"></div>
+
+          <section class="projects" id="work" aria-label="精选项目">
+            <article class="project" data-project="01" data-reveal-project>
+              <a class="project-link" href="#project-01" aria-label="查看 BLOOM 项目">
+                <img class="project-art" src="./assets/project-bloom.svg" alt="" />
+                <span class="project-number">01</span>
+                <div class="project-copy">
+                  <span>(2026)</span>
+                  <h2>BLOOM</h2>
+                </div>
+                <div class="project-services">
+                  <span>Generative Imagery</span>
+                  <span>Art Direction</span>
+                </div>
+                <span class="project-arrow" aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article class="project" data-project="02">
+              <a class="project-link" href="#project-02" aria-label="查看 SOMA 项目">
+                <img class="project-art" src="./assets/project-soft.svg" alt="" />
+                <span class="project-number">02</span>
+                <div class="project-copy">
+                  <span>(2026)</span>
+                  <h2>SOMA</h2>
+                </div>
+                <div class="project-services">
+                  <span>AI Product Film</span>
+                  <span>CGI Direction</span>
+                </div>
+                <span class="project-arrow" aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article class="project" data-project="03">
+              <a class="project-link" href="#project-03" aria-label="查看 SIGNAL 项目">
+                <img class="project-art" src="./assets/project-signal.svg" alt="" />
+                <span class="project-number">03</span>
+                <div class="project-copy">
+                  <span>(2025)</span>
+                  <h2>SIGNAL</h2>
+                </div>
+                <div class="project-services">
+                  <span>Visual Identity</span>
+                  <span>Art Direction</span>
+                </div>
+                <span class="project-arrow" aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article class="project" data-project="04">
+              <a class="project-link" href="#project-04" aria-label="查看 EDEN 项目">
+                <img class="project-art" src="./assets/project-eden.svg" alt="" />
+                <span class="project-number">04</span>
+                <div class="project-copy">
+                  <span>(2025)</span>
+                  <h2>EDEN</h2>
+                </div>
+                <div class="project-services">
+                  <span>Moving Image</span>
+                  <span>World Building</span>
+                </div>
+                <span class="project-arrow" aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article class="project" data-project="05">
+              <a class="project-link" href="#project-05" aria-label="查看 CHROME 项目">
+                <img class="project-art" src="./assets/project-chrome.svg" alt="" />
+                <span class="project-number">05</span>
+                <div class="project-copy">
+                  <span>(2024)</span>
+                  <h2>CHROME</h2>
+                </div>
+                <div class="project-services">
+                  <span>Creative Direction</span>
+                  <span>Image System</span>
+                </div>
+                <span class="project-arrow" aria-hidden="true">↗</span>
+              </a>
+            </article>
+          </section>
+
+          <section class="other-works" id="other-works" aria-labelledby="other-title">
+            <header class="other-head">
+              <h2 id="other-title">OTHER WORKS</h2>
+              <span>SELECTED 2022—2026</span>
+            </header>
+            <div class="works-table">
+              <div class="works-row works-heading" aria-hidden="true">
+                <span>Name</span><span>Year</span><span>Services</span>
+              </div>
+              <a class="works-row" href="#contact">
+                <span>LIQUID FUTURES</span><span>2026</span><span>Art Direction, Generative Image</span>
+              </a>
+              <a class="works-row" href="#contact">
+                <span>SYNTHETIC FIELD</span><span>2025</span><span>Motion Film, AI Image</span>
+              </a>
+              <a class="works-row" href="#contact">
+                <span>NEW MATTER</span><span>2025</span><span>Campaign, Creative Direction</span>
+              </a>
+              <a class="works-row" href="#contact">
+                <span>SOFT ORBIT</span><span>2024</span><span>CGI, Product Visuals</span>
+              </a>
+              <a class="works-row" href="#contact">
+                <span>CHROME DREAMS</span><span>2024</span><span>Image Series, Art Direction</span>
+              </a>
+              <a class="works-row" href="#contact">
+                <span>SIGNAL STUDY</span><span>2024</span><span>Visual Identity, AI System</span>
+              </a>
+              <a class="works-row" href="#contact">
+                <span>FIELD NOTES</span><span>2023</span><span>Editorial, Generative Image</span>
+              </a>
+              <a class="works-row" href="#contact">
+                <span>NOCTURNE</span><span>2023</span><span>Motion, Sound Direction</span>
+              </a>
+              <a class="works-row" href="#contact">
+                <span>MATTER / 02</span><span>2022</span><span>Visual Experiment</span>
+              </a>
+            </div>
+          </section>
+
+          <section class="mobile-portrait" aria-label="设计师肖像占位">
+            <img src="./assets/portrait.svg" alt="抽象金属肖像，待替换为设计师本人照片" />
+          </section>
+
+          <section class="philosophy" aria-labelledby="philosophy-title">
+            <h2 id="philosophy-title">
+              I TURN EMERGING<br />
+              TECHNOLOGY INTO<br />
+              IMAGES WITH EMOTION,<br />
+              TEXTURE &amp; A POINT OF VIEW.
+            </h2>
+
+            <div class="philosophy-body">
+              <figure class="about-portrait">
+                <img src="./assets/about-portrait.svg" alt="AIGC 实验肖像占位" />
+              </figure>
+              <div class="philosophy-copy">
+                <h3>(My Philosophy)</h3>
+                <p>
+                  I believe the best AI work starts with human taste. My practice moves between art
+                  direction, speculative image-making and moving image, shaping technology into
+                  visual worlds that feel intentional and alive.
+                </p>
+                <p>
+                  Every project begins with a clear idea and a distinct visual point of view. The
+                  tools can change; atmosphere, emotion and coherence cannot.
+                </p>
+                <h3>(My Practice)</h3>
+                <ul class="practice-list">
+                  <li>Generative Image Systems</li>
+                  <li>Campaign &amp; Editorial</li>
+                  <li>Motion And Film</li>
+                  <li>AI Workflow Design</li>
+                </ul>
+              </div>
+              <figure class="hobby-art">
+                <img src="./assets/hobby.svg" alt="红色生成艺术实验占位" />
+              </figure>
+            </div>
+          </section>
+
+          <section class="contact" id="contact" aria-labelledby="contact-title">
+            <div class="contact-black" aria-hidden="true"></div>
+            <div class="contact-red">
+              <h2 id="contact-title">LET’S ✱<br />CONNECT</h2>
+              <div class="contact-intro">
+                <p>
+                  Have a project in mind? Let’s talk and explore how I can turn your ideas into
+                  captivating, impactful visual experiences.
+                </p>
+                <a href="mailto:hello@yourname.studio">Shoot me an email <span>→</span></a>
+              </div>
+              <div class="contact-footer">
+                <p>Follow my journey on: <a href="#contact">IG</a> <a href="#contact">LI</a> <a href="#contact">BE</a></p>
+                <p>Thanks for stopping by.<br />Your visit is greatly appreciated &lt;3</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <aside class="ambient-portrait" data-ambient-portrait aria-hidden="true">
+      <img src="./assets/portrait.svg" alt="" />
+    </aside>
+
+    <dialog class="project-dialog" aria-labelledby="dialog-title">
+      <button class="dialog-close" type="button" aria-label="关闭项目详情">CLOSE ×</button>
+      <div class="dialog-grid">
+        <div class="dialog-image-wrap">
+          <img data-dialog-image src="./assets/project-bloom.svg" alt="" />
+        </div>
+        <div class="dialog-copy">
+          <p class="dialog-kicker">SELECTED PROJECT / <span data-dialog-year></span></p>
+          <h2 id="dialog-title" data-dialog-title></h2>
+          <p data-dialog-description></p>
+          <dl>
+            <div><dt>SERVICES</dt><dd data-dialog-services></dd></div>
+            <div><dt>ROLE</dt><dd>CONCEPT / ART DIRECTION / IMAGE</dd></div>
+            <div><dt>STATUS</dt><dd>CONCEPT PROJECT</dd></div>
+          </dl>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

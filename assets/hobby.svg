@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 532">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141414"/>
+      <stop offset=".48" stop-color="#050505"/>
+      <stop offset="1" stop-color="#1d1d1d"/>
+    </linearGradient>
+    <radialGradient id="red" cx=".38" cy=".3" r=".72">
+      <stop offset="0" stop-color="#ff7a66"/>
+      <stop offset=".25" stop-color="#ff2222"/>
+      <stop offset=".62" stop-color="#8d0c0e"/>
+      <stop offset="1" stop-color="#240304"/>
+    </radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="16"/></filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".74" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 .15"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="330" height="532" fill="url(#bg)"/>
+  <ellipse cx="145" cy="268" rx="148" ry="132" fill="#ff2222" opacity=".22" filter="url(#blur)"/>
+  <circle cx="150" cy="263" r="102" fill="url(#red)"/>
+  <path d="M151 158c26 61 41 120 44 177M151 158c-33 53-49 112-47 177M150 262c-43-17-89-20-136-8M150 262c46-11 88-10 127 3M150 332c-20 26-49 50-88 72M151 331c29 28 52 55 70 82" fill="none" stroke="#f3eadc" stroke-width="2" opacity=".32"/>
+  <g fill="#0d0d0d">
+    <circle cx="48" cy="462" r="48"/><circle cx="273" cy="81" r="32"/><circle cx="287" cy="448" r="62"/>
+  </g>
+  <rect width="330" height="532" filter="url(#grain)" opacity=".58"/>
+</svg>

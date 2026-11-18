@@ -1,0 +1,184 @@
+const stage = document.querySelector("[data-stage]");
+const track = document.querySelector("[data-track]");
+const progressText = document.querySelector("[data-progress-text]");
+const progressBar = document.querySelector("[data-progress-bar]");
+const ambientPortrait = document.querySelector("[data-ambient-portrait]");
+const cursor = document.querySelector("[data-cursor]");
+const dialog = document.querySelector(".project-dialog");
+const dialogClose = document.querySelector(".dialog-close");
+const desktopQuery = window.matchMedia("(min-width: 901px)");
+const finePointerQuery = window.matchMedia("(pointer: fine)");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const projects = {
+  "01": {
+    title: "BLOOM",
+    year: "2026",
+    services: "GENERATIVE IMAGERY / ART DIRECTION",
+    description:
+      "A speculative visual world exploring artificial life, mineral matter and the emotion of unfamiliar landscapes.",
+  },
+  "02": {
+    title: "SOMA",
+    year: "2026",
+    services: "AI PRODUCT FILM / CGI DIRECTION",
+    description:
+      "A study in tactile materials and precision-formed objects, built as a moving image system for a future product language.",
+  },
+  "03": {
+    title: "SIGNAL",
+    year: "2025",
+    services: "VISUAL IDENTITY / ART DIRECTION",
+    description:
+      "A generative identity concept that translates data, atmosphere and architectural rhythm into one flexible visual signal.",
+  },
+  "04": {
+    title: "EDEN",
+    year: "2025",
+    services: "MOVING IMAGE / WORLD BUILDING",
+    description:
+      "A moving image concept about an artificial ecosystem where stone, light and organic matter slowly learn to coexist.",
+  },
+  "05": {
+    title: "CHROME",
+    year: "2024",
+    services: "CREATIVE DIRECTION / IMAGE SYSTEM",
+    description:
+      "An image series that treats chrome as a memory material, bending fragments of warmth, desire and machine-made form.",
+  },
+};
+
+let targetX = 0;
+let currentX = 0;
+let frame = 0;
+
+const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+const getProgress = () => {
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  return maxScroll > 0 ? clamp(window.scrollY / maxScroll, 0, 1) : 0;
+};
+
+const updateLayout = (instant = false) => {
+  const progress = getProgress();
+  progressText.textContent = `(${Math.round(progress * 100)}%)`;
+  progressBar.style.width = `${progress * 100}%`;
+
+  if (!desktopQuery.matches) {
+    track.style.transform = "";
+    ambientPortrait.classList.remove("is-visible");
+    return;
+  }
+
+  const stageScrollMax = Math.max(1, stage.offsetHeight - window.innerHeight);
+  const trackTravel = Math.max(0, track.scrollWidth - window.innerWidth);
+  const stagedProgress = clamp(window.scrollY / stageScrollMax, 0, 1);
+  targetX = stagedProgress * trackTravel;
+
+  if (instant || reduceMotion) currentX = targetX;
+  ambientPortrait.classList.toggle("is-visible", progress > 0.53 && progress < 0.68);
+};
+
+const animateTrack = () => {
+  if (desktopQuery.matches && !reduceMotion) {
+    currentX += (targetX - currentX) * 0.12;
+    if (Math.abs(targetX - currentX) < 0.1) currentX = targetX;
+    track.style.transform = `translate3d(${-currentX}px, 0, 0)`;
+  }
+  frame = requestAnimationFrame(animateTrack);
+};
+
+window.addEventListener("scroll", () => updateLayout(false), { passive: true });
+window.addEventListener("resize", () => updateLayout(true));
+updateLayout(true);
+animateTrack();
+
+const scrollToProgress = (progress) => {
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  window.scrollTo({ top: maxScroll * progress, behavior: reduceMotion ? "auto" : "smooth" });
+};
+
+document.querySelector("[data-home]").addEventListener("click", (event) => {
+  event.preventDefault();
+  scrollToProgress(0);
+});
+
+document.querySelectorAll("[data-jump]").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    scrollToProgress(link.dataset.jump === "contact" ? 1 : 0.55);
+  });
+});
+
+document.querySelector("[data-enter-work]").addEventListener("click", () => scrollToProgress(0.18));
+
+if (finePointerQuery.matches) {
+  let cursorTargetX = -100;
+  let cursorTargetY = -100;
+  let cursorX = -100;
+  let cursorY = -100;
+  let visible = false;
+
+  window.addEventListener("pointermove", (event) => {
+    cursorTargetX = event.clientX;
+    cursorTargetY = event.clientY;
+  });
+
+  const animateCursor = () => {
+    cursorX += (cursorTargetX - cursorX) * 0.22;
+    cursorY += (cursorTargetY - cursorY) * 0.22;
+    cursor.style.setProperty("--cursor-x", `${cursorX - 40}px`);
+    cursor.style.setProperty("--cursor-y", `${cursorY - 40}px`);
+    cursor.classList.toggle("is-active", visible);
+    requestAnimationFrame(animateCursor);
+  };
+
+  document.querySelectorAll(".project-link").forEach((project) => {
+    project.addEventListener("pointerenter", () => {
+      visible = true;
+    });
+    project.addEventListener("pointerleave", () => {
+      visible = false;
+    });
+  });
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      visible = false;
+    },
+    { passive: true },
+  );
+
+  animateCursor();
+}
+
+const openProject = (key) => {
+  const project = projects[key];
+  const card = document.querySelector(`[data-project="${key}"]`);
+  if (!project || !card) return;
+
+  dialog.querySelector("[data-dialog-title]").textContent = project.title;
+  dialog.querySelector("[data-dialog-year]").textContent = project.year;
+  dialog.querySelector("[data-dialog-services]").textContent = project.services;
+  dialog.querySelector("[data-dialog-description]").textContent = project.description;
+  dialog.querySelector("[data-dialog-image]").src = card.querySelector("img").src;
+  dialog.querySelector("[data-dialog-image]").alt = project.title;
+  dialog.showModal();
+  document.body.classList.add("dialog-open");
+};
+
+document.querySelectorAll("[data-project]").forEach((card) => {
+  card.querySelector(".project-link").addEventListener("click", (event) => {
+    event.preventDefault();
+    openProject(card.dataset.project);
+  });
+});
+
+dialogClose.addEventListener("click", () => dialog.close());
+dialog.addEventListener("click", (event) => {
+  if (event.target === dialog) dialog.close();
+});
+dialog.addEventListener("close", () => document.body.classList.remove("dialog-open"));
+
+window.addEventListener("beforeunload", () => cancelAnimationFrame(frame));
