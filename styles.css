@@ -652,6 +652,7 @@ img {
 
 .contact-red {
   position: relative;
+  min-width: 0;
   flex: 0 0 58.3%;
   padding: 80px 40px 20px;
   color: var(--black);
@@ -669,27 +670,89 @@ img {
 
 .contact-intro {
   width: 360px;
-  margin-top: 40px;
+  margin-top: 26px;
 }
 
 .contact-intro p {
-  margin: 0 0 30px;
-  font-size: 17px;
-  font-weight: 600;
-  line-height: 1.45;
-}
-
-.contact-intro a {
-  display: inline-block;
-  padding-bottom: 3px;
-  border-bottom: 1px solid rgba(12, 12, 12, 0.6);
+  margin: 0;
   font-size: 16px;
   font-weight: 600;
+  line-height: 1.55;
 }
 
-.contact-intro a span {
-  margin-left: 4px;
-  font-size: 20px;
+.contact-profile {
+  width: 360px;
+  margin: 22px 0 0;
+  border-top: 1px solid rgba(12, 12, 12, 0.3);
+}
+
+.contact-profile div {
+  min-height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid rgba(12, 12, 12, 0.3);
+}
+
+.contact-profile dt,
+.contact-label,
+.contact-consult span,
+.contact-footer > p {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.contact-profile dt {
+  color: rgba(12, 12, 12, 0.58);
+}
+
+.contact-profile dd {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.contact-profile dd i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0c8e45;
+}
+
+.contact-consult {
+  width: 360px;
+  margin-top: 24px;
+}
+
+.contact-label {
+  margin: 0 0 8px;
+  color: rgba(12, 12, 12, 0.58);
+}
+
+.contact-consult a,
+.contact-consult > p:not(.contact-label) {
+  min-width: 0;
+  min-height: 27px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border-bottom: 1px solid rgba(12, 12, 12, 0.24);
+  color: var(--black);
+}
+
+.contact-consult b {
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: right;
+  overflow-wrap: anywhere;
 }
 
 .contact-footer {
@@ -703,11 +766,16 @@ img {
 }
 
 .contact-footer p {
-  margin: 0 0 15px;
+  margin: 0 0 6px;
+  color: rgba(12, 12, 12, 0.58);
 }
 
 .contact-footer a {
-  margin-left: 6px;
+  display: inline-flex;
+  gap: 5px;
+  border-bottom: 1px solid rgba(12, 12, 12, 0.55);
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .project-dialog {
