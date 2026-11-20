@@ -2,7 +2,6 @@ const stage = document.querySelector("[data-stage]");
 const track = document.querySelector("[data-track]");
 const progressText = document.querySelector("[data-progress-text]");
 const progressBar = document.querySelector("[data-progress-bar]");
-const ambientPortrait = document.querySelector("[data-ambient-portrait]");
 const cursor = document.querySelector("[data-cursor]");
 const dialog = document.querySelector(".project-dialog");
 const dialogClose = document.querySelector(".dialog-close");
@@ -66,7 +65,6 @@ const updateLayout = (instant = false) => {
 
   if (!desktopQuery.matches) {
     track.style.transform = "";
-    ambientPortrait.classList.remove("is-visible");
     return;
   }
 
@@ -76,7 +74,6 @@ const updateLayout = (instant = false) => {
   targetX = stagedProgress * trackTravel;
 
   if (instant || reduceMotion) currentX = targetX;
-  ambientPortrait.classList.toggle("is-visible", progress > 0.53 && progress < 0.68);
 };
 
 const animateTrack = () => {

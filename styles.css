@@ -556,31 +556,6 @@ img {
   padding-left: 20px;
 }
 
-.ambient-portrait {
-  position: fixed;
-  z-index: 20;
-  top: 0;
-  right: 0;
-  width: 24.8vw;
-  height: 100vh;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateX(6%);
-  transition: opacity 0.55s var(--ease), transform 0.8s var(--ease);
-  pointer-events: none;
-}
-
-.ambient-portrait.is-visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.ambient-portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .mobile-portrait {
   display: none;
 }
@@ -981,8 +956,8 @@ img {
   }
 
   .philosophy .about-portrait {
-    flex: 0 1 260px;
-    height: min(51vh, 340px);
+    flex: 0 0 300px;
+    height: min(56vh, 410px);
   }
 
   .philosophy-copy {
@@ -1220,8 +1195,7 @@ img {
     display: grid;
   }
 
-  .view-cursor,
-  .ambient-portrait {
+  .view-cursor {
     display: none;
   }
 
