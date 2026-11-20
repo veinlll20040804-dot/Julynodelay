@@ -12,37 +12,37 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 
 const projects = {
   "01": {
-    title: "BLOOM",
+    title: "风物",
     year: "2026",
-    services: "GENERATIVE IMAGERY / ART DIRECTION",
+    services: "电商视觉 / 视觉设计师",
     description:
       "A speculative visual world exploring artificial life, mineral matter and the emotion of unfamiliar landscapes.",
   },
   "02": {
-    title: "SOMA",
+    title: "册印",
     year: "2026",
-    services: "AI PRODUCT FILM / CGI DIRECTION",
+    services: "包装&画册 / 平面设计师",
     description:
       "A study in tactile materials and precision-formed objects, built as a moving image system for a future product language.",
   },
   "03": {
-    title: "SIGNAL",
+    title: "标识",
     year: "2025",
-    services: "VISUAL IDENTITY / ART DIRECTION",
+    services: "品牌设计 / 品牌设计师",
     description:
       "A generative identity concept that translates data, atmosphere and architectural rhythm into one flexible visual signal.",
   },
   "04": {
-    title: "EDEN",
+    title: "界面",
     year: "2025",
-    services: "MOVING IMAGE / WORLD BUILDING",
+    services: "UI交互 / UI设计师",
     description:
       "A moving image concept about an artificial ecosystem where stone, light and organic matter slowly learn to coexist.",
   },
   "05": {
-    title: "CHROME",
+    title: "余迹",
     year: "2024",
-    services: "CREATIVE DIRECTION / IMAGE SYSTEM",
+    services: "多元设计 / 创意设计师",
     description:
       "An image series that treats chrome as a memory material, bending fragments of warmth, desire and machine-made form.",
   },
