@@ -2,11 +2,9 @@ const stage = document.querySelector("[data-stage]");
 const track = document.querySelector("[data-track]");
 const progressText = document.querySelector("[data-progress-text]");
 const progressBar = document.querySelector("[data-progress-bar]");
-const cursor = document.querySelector("[data-cursor]");
 const dialog = document.querySelector(".project-dialog");
 const dialogClose = document.querySelector(".dialog-close");
 const desktopQuery = window.matchMedia("(min-width: 901px)");
-const finePointerQuery = window.matchMedia("(pointer: fine)");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const projects = {
@@ -108,47 +106,6 @@ document.querySelectorAll("[data-jump]").forEach((link) => {
 });
 
 document.querySelector("[data-enter-work]").addEventListener("click", () => scrollToProgress(0.18));
-
-if (finePointerQuery.matches) {
-  let cursorTargetX = -100;
-  let cursorTargetY = -100;
-  let cursorX = -100;
-  let cursorY = -100;
-  let visible = false;
-
-  window.addEventListener("pointermove", (event) => {
-    cursorTargetX = event.clientX;
-    cursorTargetY = event.clientY;
-  });
-
-  const animateCursor = () => {
-    cursorX += (cursorTargetX - cursorX) * 0.22;
-    cursorY += (cursorTargetY - cursorY) * 0.22;
-    cursor.style.setProperty("--cursor-x", `${cursorX - 40}px`);
-    cursor.style.setProperty("--cursor-y", `${cursorY - 40}px`);
-    cursor.classList.toggle("is-active", visible);
-    requestAnimationFrame(animateCursor);
-  };
-
-  document.querySelectorAll(".project-link").forEach((project) => {
-    project.addEventListener("pointerenter", () => {
-      visible = true;
-    });
-    project.addEventListener("pointerleave", () => {
-      visible = false;
-    });
-  });
-
-  window.addEventListener(
-    "scroll",
-    () => {
-      visible = false;
-    },
-    { passive: true },
-  );
-
-  animateCursor();
-}
 
 const openProject = (key) => {
   const project = projects[key];

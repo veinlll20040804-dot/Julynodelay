@@ -473,29 +473,57 @@ img {
   font-weight: 500;
 }
 
-.view-cursor {
+.target-cursor {
   position: fixed;
-  z-index: 130;
-  top: 0;
-  left: 0;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: var(--red);
-  background: var(--white);
-  font-size: 15px;
-  font-weight: 600;
+  z-index: 2147483647;
+  inset: 0;
   pointer-events: none;
-  opacity: 0;
-  transform: translate(-100px, -100px) scale(0.3);
-  transition: opacity 0.2s ease, transform 0.18s ease;
+  mix-blend-mode: difference;
 }
 
-.view-cursor.is-active {
-  opacity: 1;
-  transform: translate(var(--cursor-x), var(--cursor-y)) scale(1);
+.target-cursor__corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: var(--target-cursor-color, #ffffff);
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.target-cursor__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background: var(--target-cursor-color, #ffffff);
+  will-change: transform;
+}
+
+.target-cursor__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--target-cursor-color, #ffffff);
+  font-family: "Plus Jakarta Sans", "Microsoft YaHei UI", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+html.target-cursor-active,
+html.target-cursor-active * {
+  cursor: none !important;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .target-cursor {
+    display: none;
+  }
 }
 
 .other-works {
@@ -1193,10 +1221,6 @@ img {
 
   .project-arrow {
     display: grid;
-  }
-
-  .view-cursor {
-    display: none;
   }
 
   .other-works {

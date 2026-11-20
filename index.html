@@ -17,10 +17,9 @@
   </head>
   <body>
     <div class="page-progress" aria-hidden="true"><span data-progress-bar></span></div>
-    <div class="view-cursor" data-cursor aria-hidden="true"><span>VIEW</span></div>
 
     <header class="topbar">
-      <a class="brand-mark" href="#top" data-home aria-label="返回首页">
+      <a class="brand-mark cursor-target" href="#top" data-home aria-label="返回首页" data-cursor-label="回到顶部">
         <svg viewBox="0 0 48 24" aria-hidden="true">
           <path d="M0 3 15 0l10 3-10 3L0 3Zm9 8 25-5 10 3-35 7-9-2 9-3Zm15 5 24-1v4l-24 1-13 3-4-3 17-4Z" />
         </svg>
@@ -28,8 +27,8 @@
       <p class="scroll-status">Progress <span data-progress-text>(0%)</span></p>
       <p class="availability"><i></i> Available for work</p>
       <nav aria-label="主导航">
-        <a href="#other-works" data-jump="playground">Playground</a>
-        <a href="#contact" data-jump="contact">Contact</a>
+        <a class="cursor-target" href="#other-works" data-jump="playground" data-cursor-label="探索">Playground</a>
+        <a class="cursor-target" href="#contact" data-jump="contact" data-cursor-label="联系">Contact</a>
       </nav>
     </header>
 
@@ -68,7 +67,7 @@
 
             <div class="hero-footer">
               <span>Volume 1.@26</span>
-              <button type="button" data-enter-work>Featured projects below ⟶</button>
+              <button class="cursor-target" type="button" data-enter-work data-cursor-label="查看项目">Featured projects below ⟶</button>
             </div>
           </section>
 
@@ -79,7 +78,7 @@
               <a class="project-link" href="#project-01" aria-label="查看风物项目">
                 <img class="project-art" src="./assets/project-bloom.svg" alt="" />
                 <span class="project-number">01</span>
-                <div class="project-copy">
+                <div class="project-copy cursor-target" data-cursor-label="查看项目">
                   <span>(2026)</span>
                   <h2>风物</h2>
                 </div>
@@ -95,7 +94,7 @@
               <a class="project-link" href="#project-02" aria-label="查看册印项目">
                 <img class="project-art" src="./assets/project-soft.svg" alt="" />
                 <span class="project-number">02</span>
-                <div class="project-copy">
+                <div class="project-copy cursor-target" data-cursor-label="查看项目">
                   <span>(2026)</span>
                   <h2>册印</h2>
                 </div>
@@ -111,7 +110,7 @@
               <a class="project-link" href="#project-03" aria-label="查看标识项目">
                 <img class="project-art" src="./assets/project-signal.svg" alt="" />
                 <span class="project-number">03</span>
-                <div class="project-copy">
+                <div class="project-copy cursor-target" data-cursor-label="查看项目">
                   <span>(2025)</span>
                   <h2>标识</h2>
                 </div>
@@ -127,7 +126,7 @@
               <a class="project-link" href="#project-04" aria-label="查看界面项目">
                 <img class="project-art" src="./assets/project-eden.svg" alt="" />
                 <span class="project-number">04</span>
-                <div class="project-copy">
+                <div class="project-copy cursor-target" data-cursor-label="查看项目">
                   <span>(2025)</span>
                   <h2>界面</h2>
                 </div>
@@ -143,7 +142,7 @@
               <a class="project-link" href="#project-05" aria-label="查看余迹项目">
                 <img class="project-art" src="./assets/project-chrome.svg" alt="" />
                 <span class="project-number">05</span>
-                <div class="project-copy">
+                <div class="project-copy cursor-target" data-cursor-label="查看项目">
                   <span>(2024)</span>
                   <h2>余迹</h2>
                 </div>
@@ -165,31 +164,31 @@
               <div class="works-row works-heading" aria-hidden="true">
                 <span>Name</span><span>Year</span><span>Services</span>
               </div>
-              <a class="works-row" href="#contact">
+              <a class="works-row cursor-target" href="#contact" data-cursor-label="查看">
                 <span>LIQUID FUTURES</span><span>2026</span><span>Art Direction, Generative Image</span>
               </a>
-              <a class="works-row" href="#contact">
+              <a class="works-row cursor-target" href="#contact" data-cursor-label="查看">
                 <span>SYNTHETIC FIELD</span><span>2025</span><span>Motion Film, AI Image</span>
               </a>
-              <a class="works-row" href="#contact">
+              <a class="works-row cursor-target" href="#contact" data-cursor-label="查看">
                 <span>NEW MATTER</span><span>2025</span><span>Campaign, Creative Direction</span>
               </a>
-              <a class="works-row" href="#contact">
+              <a class="works-row cursor-target" href="#contact" data-cursor-label="查看">
                 <span>SOFT ORBIT</span><span>2024</span><span>CGI, Product Visuals</span>
               </a>
-              <a class="works-row" href="#contact">
+              <a class="works-row cursor-target" href="#contact" data-cursor-label="查看">
                 <span>CHROME DREAMS</span><span>2024</span><span>Image Series, Art Direction</span>
               </a>
-              <a class="works-row" href="#contact">
+              <a class="works-row cursor-target" href="#contact" data-cursor-label="查看">
                 <span>SIGNAL STUDY</span><span>2024</span><span>Visual Identity, AI System</span>
               </a>
-              <a class="works-row" href="#contact">
+              <a class="works-row cursor-target" href="#contact" data-cursor-label="查看">
                 <span>FIELD NOTES</span><span>2023</span><span>Editorial, Generative Image</span>
               </a>
-              <a class="works-row" href="#contact">
+              <a class="works-row cursor-target" href="#contact" data-cursor-label="查看">
                 <span>NOCTURNE</span><span>2023</span><span>Motion, Sound Direction</span>
               </a>
-              <a class="works-row" href="#contact">
+              <a class="works-row cursor-target" href="#contact" data-cursor-label="查看">
                 <span>MATTER / 02</span><span>2022</span><span>Visual Experiment</span>
               </a>
             </div>
@@ -248,17 +247,17 @@
               </dl>
               <div class="contact-consult">
                 <p class="contact-label">合作咨询</p>
-                <a href="mailto:3428858775@qq.com">
+                <a class="cursor-target" href="mailto:3428858775@qq.com" data-cursor-label="写邮件">
                   <span>邮箱</span><b>3428858775@qq.com</b>
                 </a>
                 <p><span>微信</span><b>vein_July0804</b></p>
-                <a href="tel:+8617773553775">
+                <a class="cursor-target" href="tel:+8617773553775" data-cursor-label="拨打电话">
                   <span>电话</span><b>17773553775</b>
                 </a>
               </div>
               <div class="contact-footer">
                 <p>站酷账号</p>
-                <a href="https://www.zcool.com.cn/u/" target="_blank" rel="noreferrer">
+                <a class="cursor-target" href="https://www.zcool.com.cn/u/" target="_blank" rel="noreferrer" data-cursor-label="访问主页">
                   www.zcool.com.cn/u/ <span>↗</span>
                 </a>
               </div>
@@ -269,7 +268,7 @@
     </main>
 
     <dialog class="project-dialog" aria-labelledby="dialog-title">
-      <button class="dialog-close" type="button" aria-label="关闭项目详情">CLOSE ×</button>
+      <button class="dialog-close cursor-target" type="button" aria-label="关闭项目详情" data-cursor-label="关闭">CLOSE ×</button>
       <div class="dialog-grid">
         <div class="dialog-image-wrap">
           <img data-dialog-image src="./assets/project-bloom.svg" alt="" />
@@ -288,6 +287,7 @@
     </dialog>
 
     <script src="./soft-aurora.js"></script>
+    <script src="./target-cursor.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
