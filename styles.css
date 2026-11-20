@@ -499,8 +499,8 @@ img {
 }
 
 .other-works {
-  flex: 0 0 137.3vw;
-  width: 137.3vw;
+  flex: 0 0 60vw;
+  width: 60vw;
   height: 100vh;
   margin-left: 2.7vw;
   padding: 80px 20px 20px;
@@ -537,10 +537,10 @@ img {
 .works-row {
   min-height: 55px;
   display: grid;
-  grid-template-columns: minmax(520px, 1.2fr) minmax(360px, 0.7fr) minmax(600px, 1fr);
+  grid-template-columns: minmax(190px, 1.1fr) 100px minmax(240px, 1fr);
   align-items: center;
   border-top: 1px solid var(--line);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 1.2;
 }
@@ -741,7 +741,7 @@ img {
 }
 
 .contact-profile dt {
-  color: rgba(12, 12, 12, 0.58);
+  color: var(--black);
 }
 
 .contact-profile dd {
@@ -957,6 +957,60 @@ img {
 
   .contact-intro {
     width: 310px;
+  }
+}
+
+@media (max-height: 760px) and (min-width: 901px) {
+  .philosophy {
+    padding-top: 48px;
+  }
+
+  .philosophy > h2 {
+    width: 700px;
+    font-size: 46px;
+    line-height: 0.95;
+  }
+
+  .philosophy-body {
+    right: 2vw;
+    bottom: 20px;
+    left: 2vw;
+    width: auto;
+    gap: 5vw;
+    justify-content: space-between;
+  }
+
+  .philosophy .about-portrait {
+    flex: 0 1 260px;
+    height: min(51vh, 340px);
+  }
+
+  .philosophy-copy {
+    flex: 1 1 330px;
+    max-width: 360px;
+    margin-left: 0;
+  }
+
+  .philosophy .hobby-art {
+    flex: 0 1 260px;
+    height: min(51vh, 340px);
+    margin-left: 0;
+  }
+
+  .philosophy-copy h3 {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .philosophy-copy p {
+    margin-bottom: 18px;
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  .practice-list li {
+    padding: 10px 0;
+    font-size: 14px;
   }
 }
 
