@@ -2,48 +2,8 @@ const stage = document.querySelector("[data-stage]");
 const track = document.querySelector("[data-track]");
 const progressText = document.querySelector("[data-progress-text]");
 const progressBar = document.querySelector("[data-progress-bar]");
-const dialog = document.querySelector(".project-dialog");
-const dialogClose = document.querySelector(".dialog-close");
 const desktopQuery = window.matchMedia("(min-width: 901px)");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-const projects = {
-  "01": {
-    title: "风物",
-    year: "2026",
-    services: "电商视觉 / 视觉设计师",
-    description:
-      "A speculative visual world exploring artificial life, mineral matter and the emotion of unfamiliar landscapes.",
-  },
-  "02": {
-    title: "册印",
-    year: "2026",
-    services: "包装&画册 / 平面设计师",
-    description:
-      "A study in tactile materials and precision-formed objects, built as a moving image system for a future product language.",
-  },
-  "03": {
-    title: "标识",
-    year: "2025",
-    services: "品牌设计 / 品牌设计师",
-    description:
-      "A generative identity concept that translates data, atmosphere and architectural rhythm into one flexible visual signal.",
-  },
-  "04": {
-    title: "界面",
-    year: "2025",
-    services: "UI交互 / UI设计师",
-    description:
-      "A moving image concept about an artificial ecosystem where stone, light and organic matter slowly learn to coexist.",
-  },
-  "05": {
-    title: "余迹",
-    year: "2024",
-    services: "多元设计 / 创意设计师",
-    description:
-      "An image series that treats chrome as a memory material, bending fragments of warmth, desire and machine-made form.",
-  },
-};
 
 let targetX = 0;
 let currentX = 0;
@@ -106,33 +66,5 @@ document.querySelectorAll("[data-jump]").forEach((link) => {
 });
 
 document.querySelector("[data-enter-work]").addEventListener("click", () => scrollToProgress(0.18));
-
-const openProject = (key) => {
-  const project = projects[key];
-  const card = document.querySelector(`[data-project="${key}"]`);
-  if (!project || !card) return;
-
-  dialog.querySelector("[data-dialog-title]").textContent = project.title;
-  dialog.querySelector("[data-dialog-year]").textContent = project.year;
-  dialog.querySelector("[data-dialog-services]").textContent = project.services;
-  dialog.querySelector("[data-dialog-description]").textContent = project.description;
-  dialog.querySelector("[data-dialog-image]").src = card.querySelector("img").src;
-  dialog.querySelector("[data-dialog-image]").alt = project.title;
-  dialog.showModal();
-  document.body.classList.add("dialog-open");
-};
-
-document.querySelectorAll("[data-project]").forEach((card) => {
-  card.querySelector(".project-link").addEventListener("click", (event) => {
-    event.preventDefault();
-    openProject(card.dataset.project);
-  });
-});
-
-dialogClose.addEventListener("click", () => dialog.close());
-dialog.addEventListener("click", (event) => {
-  if (event.target === dialog) dialog.close();
-});
-dialog.addEventListener("close", () => document.body.classList.remove("dialog-open"));
 
 window.addEventListener("beforeunload", () => cancelAnimationFrame(frame));
