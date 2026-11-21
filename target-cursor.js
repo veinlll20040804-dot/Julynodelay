@@ -205,6 +205,10 @@
       root.style.setProperty("--target-cursor-color", color);
       lastColor = color;
     }
+    const lockedBlend = lock.x > 0.35 ? "normal" : "difference";
+    if (root.style.mixBlendMode !== lockedBlend) {
+      root.style.mixBlendMode = lockedBlend;
+    }
     root.style.opacity = Math.max(0, Math.min(1, presence.x)).toFixed(3);
 
     const resting =
