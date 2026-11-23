@@ -166,7 +166,7 @@ gallery.innerHTML = galleryItems
     }
     return `
       <figure class="gallery-card gallery-card--image" style="--ratio:${item.ratio};--position:${item.position}">
-        <img src="${item.src || project.cover}" alt="${project.title} · ${item.label}" loading="lazy" decoding="async" />
+        <img src="${item.src || project.cover}" alt="${project.title} · ${item.label}" decoding="async" />
         <figcaption><span>${item.index}</span><span>${item.label}</span></figcaption>
       </figure>`;
   })
