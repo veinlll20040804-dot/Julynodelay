@@ -14,14 +14,14 @@ const projects = {
       "从产品卖点到情绪氛围，项目围绕主视觉、页面延展与传播物料建立统一的视觉语言。每一次构图与材质选择，都服务于更清晰的商品表达。",
     tags: ["视觉策略", "主视觉", "页面延展", "传播物料"],
     gallery: [
-      { src: "../../assets/fengwu/detail-01-mouse.jpg", label: "机械鼠标" },
-      { src: "../../assets/fengwu/detail-02-hair-oil.jpg", label: "护发精油" },
-      { src: "../../assets/fengwu/detail-03-headset.jpg", label: "无线耳机" },
-      { src: "../../assets/fengwu/detail-04-skin-care.jpg", label: "护肤精华" },
-      { src: "../../assets/fengwu/detail-05-drone.jpg", label: "航拍无人机" },
-      { src: "../../assets/fengwu/detail-06-perfume.jpg", label: "少女香水" },
-      { src: "../../assets/fengwu/detail-07-body-wash.jpg", label: "香氛沐浴露" },
-      { src: "../../assets/fengwu/detail-08-shampoo.jpg", label: "洗护产品" },
+      { src: "../../assets/fengwu/detail-01-mouse.jpg", label: "机械鼠标", width: 450, height: 6754 },
+      { src: "../../assets/fengwu/detail-02-hair-oil.jpg", label: "护发精油", width: 450, height: 7678 },
+      { src: "../../assets/fengwu/detail-03-headset.jpg", label: "无线耳机", width: 450, height: 5695 },
+      { src: "../../assets/fengwu/detail-04-skin-care.jpg", label: "护肤精华", width: 450, height: 5329 },
+      { src: "../../assets/fengwu/detail-05-drone.jpg", label: "航拍无人机", width: 450, height: 5225 },
+      { src: "../../assets/fengwu/detail-06-perfume.jpg", label: "少女香水", width: 450, height: 5881 },
+      { src: "../../assets/fengwu/detail-07-body-wash.jpg", label: "香氛沐浴露", width: 450, height: 6155 },
+      { src: "../../assets/fengwu/detail-08-shampoo.jpg", label: "洗护产品", width: 450, height: 7757 },
     ],
   },
   ceyin: {
@@ -130,7 +130,7 @@ const galleryItems = project.gallery
   ? project.gallery.map((item, index) => ({
       ...item,
       type: "image",
-      ratio: "1 / 3",
+      ratio: "auto",
       position: "50% 0%",
       index: String(index + 1).padStart(2, "0"),
     }))
@@ -145,6 +145,7 @@ const galleryItems = project.gallery
 
 const gallery = document.querySelector("[data-project-gallery]");
 gallery.classList.toggle("project-gallery--grid", Boolean(project.gallery));
+gallery.classList.toggle("project-gallery--full", Boolean(project.gallery));
 gallery.innerHTML = galleryItems
   .map((item) => {
     if (item.type === "type") {
@@ -166,7 +167,7 @@ gallery.innerHTML = galleryItems
     }
     return `
       <figure class="gallery-card gallery-card--image" style="--ratio:${item.ratio};--position:${item.position}">
-        <img src="${item.src || project.cover}" alt="${project.title} · ${item.label}" decoding="async" />
+        <img src="${item.src || project.cover}" alt="${project.title} · ${item.label}" ${item.width ? `width="${item.width}" height="${item.height}"` : ""} loading="${Number(item.index) > 5 ? "lazy" : "eager"}" decoding="async" />
         <figcaption><span>${item.index}</span><span>${item.label}</span></figcaption>
       </figure>`;
   })

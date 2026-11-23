@@ -325,11 +325,22 @@ img {
 .project-gallery--grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: start;
   gap: 16px;
 }
 
 .project-gallery--grid .gallery-card {
   margin: 0;
+}
+
+.project-gallery--full .gallery-card--image {
+  aspect-ratio: auto;
+}
+
+.project-gallery--full .gallery-card--image img {
+  height: auto;
+  object-fit: contain;
+  object-position: center;
 }
 
 .gallery-card {
