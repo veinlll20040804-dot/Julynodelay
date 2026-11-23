@@ -146,32 +146,59 @@ const galleryItems = project.gallery
 const gallery = document.querySelector("[data-project-gallery]");
 gallery.classList.toggle("project-gallery--grid", Boolean(project.gallery));
 gallery.classList.toggle("project-gallery--full", Boolean(project.gallery));
-gallery.innerHTML = galleryItems
-  .map((item) => {
-    if (item.type === "type") {
-      return `
-        <article class="gallery-card gallery-card--type" style="--ratio:${item.ratio}">
-          <div class="gallery-card__head"><span>${item.index}</span><span>${item.label}</span></div>
-          <h3>${item.title}</h3>
-          <span class="gallery-card__mark">${project.index}</span>
-          <div class="gallery-card__foot"><span>${project.english}</span><span>${project.year}</span></div>
-        </article>`;
-    }
-    if (item.type === "quote") {
-      return `
-        <article class="gallery-card gallery-card--quote" style="--ratio:${item.ratio}">
-          <div class="gallery-card__head"><span>${item.index}</span><span>${item.label}</span></div>
-          <blockquote>${item.title}</blockquote>
-          <div class="gallery-card__foot"><span>${project.role}</span><span>${project.year}</span></div>
-        </article>`;
-    }
+
+const renderGalleryItem = (item) => {
+  if (item.type === "type") {
     return `
-      <figure class="gallery-card gallery-card--image" style="--ratio:${item.ratio};--position:${item.position}">
-        <img src="${item.src || project.cover}" alt="${project.title} · ${item.label}" ${item.width ? `width="${item.width}" height="${item.height}"` : ""} loading="${Number(item.index) > 5 ? "lazy" : "eager"}" decoding="async" />
-        <figcaption><span>${item.index}</span><span>${item.label}</span></figcaption>
-      </figure>`;
-  })
-  .join("");
+      <article class="gallery-card gallery-card--type" style="--ratio:${item.ratio}">
+        <div class="gallery-card__head"><span>${item.index}</span><span>${item.label}</span></div>
+        <h3>${item.title}</h3>
+        <span class="gallery-card__mark">${project.index}</span>
+        <div class="gallery-card__foot"><span>${project.english}</span><span>${project.year}</span></div>
+      </article>`;
+  }
+  if (item.type === "quote") {
+    return `
+      <article class="gallery-card gallery-card--quote" style="--ratio:${item.ratio}">
+        <div class="gallery-card__head"><span>${item.index}</span><span>${item.label}</span></div>
+        <blockquote>${item.title}</blockquote>
+        <div class="gallery-card__foot"><span>${project.role}</span><span>${project.year}</span></div>
+      </article>`;
+  }
+  return `
+    <figure class="gallery-card gallery-card--image" style="--ratio:${item.ratio};--position:${item.position}">
+      <img src="${item.src || project.cover}" alt="${project.title} · ${item.label}" ${item.width ? `width="${item.width}" height="${item.height}"` : ""} loading="${Number(item.index) > 5 ? "lazy" : "eager"}" decoding="async" />
+      <figcaption><span>${item.index}</span><span>${item.label}</span></figcaption>
+    </figure>`;
+};
+
+const getGalleryColumnCount = () => (innerWidth > 1100 ? 5 : innerWidth > 760 ? 3 : 2);
+let galleryColumnCount = getGalleryColumnCount();
+
+const renderGallery = () => {
+  if (!project.gallery) {
+    gallery.innerHTML = galleryItems.map(renderGalleryItem).join("");
+    return;
+  }
+
+  const columns = Array.from({ length: galleryColumnCount }, () => []);
+  galleryItems.forEach((item, index) => columns[index % galleryColumnCount].push(item));
+  gallery.innerHTML = columns
+    .map(
+      (items) =>
+        `<div class="project-gallery__column">${items.map(renderGalleryItem).join("")}</div>`,
+    )
+    .join("");
+};
+
+renderGallery();
+addEventListener("resize", () => {
+  const nextColumnCount = getGalleryColumnCount();
+  if (project.gallery && nextColumnCount !== galleryColumnCount) {
+    galleryColumnCount = nextColumnCount;
+    renderGallery();
+  }
+});
 
 const nextLink = document.querySelector("[data-next-link]");
 nextLink.href = `../${nextKey}/`;
