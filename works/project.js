@@ -13,6 +13,16 @@ const projects = {
     note:
       "从产品卖点到情绪氛围，项目围绕主视觉、页面延展与传播物料建立统一的视觉语言。每一次构图与材质选择，都服务于更清晰的商品表达。",
     tags: ["视觉策略", "主视觉", "页面延展", "传播物料"],
+    gallery: [
+      { src: "../../assets/fengwu/detail-01-mouse.jpg", label: "机械鼠标" },
+      { src: "../../assets/fengwu/detail-02-hair-oil.jpg", label: "护发精油" },
+      { src: "../../assets/fengwu/detail-03-headset.jpg", label: "无线耳机" },
+      { src: "../../assets/fengwu/detail-04-skin-care.jpg", label: "护肤精华" },
+      { src: "../../assets/fengwu/detail-05-drone.jpg", label: "航拍无人机" },
+      { src: "../../assets/fengwu/detail-06-perfume.jpg", label: "少女香水" },
+      { src: "../../assets/fengwu/detail-07-body-wash.jpg", label: "香氛沐浴露" },
+      { src: "../../assets/fengwu/detail-08-shampoo.jpg", label: "洗护产品" },
+    ],
   },
   ceyin: {
     index: "02",
@@ -116,16 +126,26 @@ tags.innerHTML = project.tags.map((tag) => `<li>${tag}</li>`).join("");
 const noteTags = document.querySelector("[data-note-tags]");
 noteTags.innerHTML = project.tags.map((tag) => `<span>${tag}</span>`).join("");
 
-const galleryItems = [
-  { type: "image", ratio: "4 / 5", position: "50% 35%", index: "A", label: "主视觉" },
-  { type: "type", ratio: "4 / 5", index: "B", label: "视觉方向", title: project.noteTitle },
-  { type: "image", ratio: "1 / 1", position: "35% 55%", index: "C", label: "视觉细节" },
-  { type: "image", ratio: "3 / 2", position: "65% 42%", index: "D", label: "场景延展" },
-  { type: "quote", ratio: "3 / 4", index: "E", label: "设计表达", title: project.intro },
-  { type: "image", ratio: "3 / 4", position: "50% 70%", index: "F", label: "应用表现" },
-];
+const galleryItems = project.gallery
+  ? project.gallery.map((item, index) => ({
+      ...item,
+      type: "image",
+      ratio: "1 / 3",
+      position: "50% 0%",
+      index: String(index + 1).padStart(2, "0"),
+    }))
+  : [
+      { type: "image", ratio: "4 / 5", position: "50% 35%", index: "A", label: "主视觉" },
+      { type: "type", ratio: "4 / 5", index: "B", label: "视觉方向", title: project.noteTitle },
+      { type: "image", ratio: "1 / 1", position: "35% 55%", index: "C", label: "视觉细节" },
+      { type: "image", ratio: "3 / 2", position: "65% 42%", index: "D", label: "场景延展" },
+      { type: "quote", ratio: "3 / 4", index: "E", label: "设计表达", title: project.intro },
+      { type: "image", ratio: "3 / 4", position: "50% 70%", index: "F", label: "应用表现" },
+    ];
 
-document.querySelector("[data-project-gallery]").innerHTML = galleryItems
+const gallery = document.querySelector("[data-project-gallery]");
+gallery.classList.toggle("project-gallery--grid", Boolean(project.gallery));
+gallery.innerHTML = galleryItems
   .map((item) => {
     if (item.type === "type") {
       return `
@@ -146,7 +166,7 @@ document.querySelector("[data-project-gallery]").innerHTML = galleryItems
     }
     return `
       <figure class="gallery-card gallery-card--image" style="--ratio:${item.ratio};--position:${item.position}">
-        <img src="${project.cover}" alt="${project.title} · ${item.label}" />
+        <img src="${item.src || project.cover}" alt="${project.title} · ${item.label}" loading="lazy" decoding="async" />
         <figcaption><span>${item.index}</span><span>${item.label}</span></figcaption>
       </figure>`;
   })
