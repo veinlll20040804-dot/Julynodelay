@@ -8,11 +8,11 @@ const projects = {
     year: "2026",
     cover: "../../assets/project-bloom.svg",
     intro:
-      "以地域风物为灵感，将自然肌理、人物叙事与商业影像结合，建立兼具温度与识别度的电商视觉系统。",
+      "电商设计围绕商品转化，负责亚马逊、国内电商平台的详情页、主图、首页、活动海报等视觉设计，兼顾产品卖点传递、品牌调性与平台规范，提升商品吸引力，助力成交。",
     noteTitle: "让地域风物成为<br>可感知的商业视觉",
     note:
       "从产品卖点到情绪氛围，项目围绕主视觉、页面延展与传播物料建立统一的视觉语言。每一次构图与材质选择，都服务于更清晰的商品表达。",
-    tags: ["视觉策略", "主视觉", "页面延展", "传播物料"],
+    tags: ["视觉策略", "主视觉", "页面延展", "电商设计"],
     gallery: [
       { src: "../../assets/fengwu/detail-01-mouse.jpg", label: "机械鼠标", width: 450, height: 6754 },
       { src: "../../assets/fengwu/detail-02-hair-oil.jpg", label: "护发精油", width: 450, height: 7678 },
