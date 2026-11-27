@@ -127,8 +127,10 @@ text("[data-note-copy]", project.note);
 text("[data-next-title]", nextProject.title);
 
 const cover = document.querySelector("[data-cover-image]");
-cover.src = project.cover;
-cover.alt = `${project.title}项目主视觉`;
+if (cover) {
+  cover.src = project.cover;
+  cover.alt = `${project.title}项目主视觉`;
+}
 
 const tags = document.querySelector("[data-project-tags]");
 tags.innerHTML = project.tags.map((tag) => `<li>${tag}</li>`).join("");
@@ -208,6 +210,35 @@ addEventListener("resize", () => {
     renderGallery();
   }
 });
+
+const workSwitcher = document.querySelector("[data-work-switcher]");
+if (workSwitcher) {
+  const tabs = [...workSwitcher.querySelectorAll(".work-switcher__tab")];
+  const track = workSwitcher.querySelector("[data-work-track]");
+  const indicator = workSwitcher.querySelector("[data-work-indicator]");
+  const panels = [...track.children];
+
+  const moveIndicator = () => {
+    const activeTab = tabs.find((tab) => tab.getAttribute("aria-pressed") === "true");
+    indicator.style.width = `${activeTab.offsetWidth}px`;
+    indicator.style.transform = `translate3d(${activeTab.offsetLeft}px, 0, 0)`;
+  };
+
+  const selectWork = (index) => {
+    tabs.forEach((tab, tabIndex) => tab.setAttribute("aria-pressed", String(tabIndex === index)));
+    panels.forEach((panel, panelIndex) => {
+      const active = panelIndex === index;
+      panel.setAttribute("aria-hidden", String(!active));
+      panel.inert = !active;
+    });
+    track.style.transform = `translate3d(${-index * 100}%, 0, 0)`;
+    moveIndicator();
+  };
+
+  tabs.forEach((tab, index) => tab.addEventListener("click", () => selectWork(index)));
+  addEventListener("resize", moveIndicator);
+  requestAnimationFrame(moveIndicator);
+}
 
 const nextLink = document.querySelector("[data-next-link]");
 nextLink.href = `../${nextKey}/`;
